@@ -1,86 +1,100 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { Users, Zap, Star, Trophy, Heart, Brain, Activity, Palette, Calendar } from "lucide-react"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Star,
+  Trophy,
+  Heart,
+  Brain,
+  Activity,
+  Palette,
+  Calendar,
+  Sparkles,
+  RotateCcw,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className=" bg-[#FEFDF9] text-[#428180] font-serif z-index-100">
-      {/* New Hero Section content: */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-20 bg-[#FEFDF9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          {/* Khudi Logo Element */}
-          <div className="inline-block rounded-full px-6 py-2 mb-8 ">
-            <span className=" font-semibold text-lg">
-              <Image
-              src="/khudi-logo.png"
-                  alt="Student Learning"
-                  width={400}
-                  height={400}
-                  />
-            </span>
-          </div>
+    <div className="bg-[#FEFDF9] text-[#428180] font-serif">
+      {/* Hero Section - Matching the reference image exactly */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden my-15 bg-[#FEFDF9]">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div>
+                <h1 className="text-5xl md:text-6xl font-bold text-[#264A4A] leading-tight mb-6">
+                  A DIFFERENT
+                  <br />
+                  KIND OF
+                  <br />
+                  SCHOOL
+                </h1>
+                <p className="text-lg text-gray-700 leading-relaxed max-w-lg">
+                  Khudi Institute is an{" "}
+                  <span className="font-semibold">
+                    alternative school and a resource center
+                  </span>{" "}
+                  for <span className="font-semibold">homeschoolers</span>,
+                  focused on the{" "}
+                  <span className="font-semibold">holistic development</span> of
+                  each learner.
+                </p>
+              </div>
 
-          <h2 className="text-5xl md:text-6xl font-extrabold text-[#264A4A] leading-tight mb-4">
-            Better Future For Your <span className="text-[#428180]">Kids</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Let the child be the director, and the actor in his own play
-          </p>
-          <button className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-[#264A4A] hover:to-[#428180] transition-all duration-300 inline-flex items-center group">
-            Get Started
-            <span className="ml-2 text-white group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </button>
-          <p className="text-base text-gray-600 max-w-xl mx-auto mt-6">
-            We just don't give our students only lecture but real life experiment, workshops and filed experience
-            throughout the journey !
-          </p>
+              {/* Feature Points */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="flex items-center space-x-3">
+                  <Sparkles className="w-6 h-6 text-[#428180] flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A]">
+                      Project-based
+                    </p>
+                    <p className="text-sm text-gray-600">learning</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <RotateCcw className="w-6 h-6 text-[#428180] flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A]">
+                      Faith-centered
+                    </p>
+                    <p className="text-sm text-gray-600">approach</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Heart className="w-6 h-6 text-[#428180] flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A]">Community</p>
+                    <p className="text-sm text-gray-600">engagement</p>
+                  </div>
+                </div>
+              </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center mt-16 gap-8 md:gap-16">
-            {/* Left Child Image */}
-            <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
-              <div className="absolute inset-0 bg-[#428180] rounded-full flex items-center justify-center overflow-hidden">
-                <Image
-                  src="/learning.jpeg"
-                  alt="Student Learning"
-                  width={250}
-                  height={250}
-                  className="object-cover w-full h-full scale-110"
-                />
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/admissions">
+                  <button className="bg-[#264A4A] text-white px-8 py-3 rounded-lg hover:bg-[#428180] transition-colors font-medium">
+                    For Regular Students
+                  </button>
+                </Link>
+                <Link href="/admissions">
+                  <button className="border-2 border-[#264A4A] text-[#264A4A] px-8 py-3 rounded-lg hover:bg-[#264A4A] hover:text-white transition-colors font-medium">
+                    For Home Schoolers
+                  </button>
+                </Link>
               </div>
             </div>
 
-            {/* Statistics */}
-            <div className="flex flex-col items-center justify-center space-y-8 md:space-y-12">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[#778985] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <h3 className="text-4xl font-bold text-[#264A4A]">7.5k+</h3>
-                  <p className="text-gray-600 text-lg">Total active students taking gifted courses</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[#B2B5A9] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-[#264A4A]" />
-                </div>
-                <div className="text-left">
-                  <h3 className="text-4xl font-bold text-[#264A4A]">50+</h3>
-                  <p className="text-gray-600 text-lg">Available field programs and increasing</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Child Image */}
-            <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
-              <div className="absolute inset-0 bg-[#B2B5A9] rounded-full flex items-center justify-center overflow-hidden">
+            {/* Right Image */}
+            <div className="relative">
+              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/activity.jpeg"
-                  alt="Student Activities"
-                  width={250}
-                  height={250}
-                  className="object-cover w-full h-full scale-110"
+                  src="/hero.png"
+                  alt="Children learning together at Khudi Institute"
+                  fill
+                  className="object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -94,10 +108,12 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <h2 className="text-5xl font-bold text-[#264A4A] mb-6">
-                Spiritually rooted learners ready to <span className="text-[#428180]">excel!</span>
+                Spiritually rooted learners ready to{" "}
+                <span className="text-[#428180]">excel!</span>
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Learn with us through Project-Based Learning rooted in Islamic values at Khudi Institute!
+                Learn with us through Project-Based Learning rooted in Islamic
+                values at Khudi Institute!
               </p>
               <Link
                 href="/admissions"
@@ -145,7 +161,9 @@ export default function Home() {
               <div className="col-span-2 bg-gradient-to-r from-[#2D4F4F] to-[#264A4A] rounded-3xl p-6 text-[#FFFFFE] relative overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Grow your own wings</h3>
+                    <h3 className="text-xl font-bold mb-2">
+                      Grow your own wings
+                    </h3>
                   </div>
                   <Image
                     src="/Growth.jpeg"
@@ -170,13 +188,16 @@ export default function Home() {
               <div className="w-12 h-12 bg-[#778985] rounded-full flex items-center justify-center mr-4">
                 <Star className="w-6 h-6 text-[#FFFFFE]" />
               </div>
-              <span className="text-lg text-gray-600">We focus on one impactful lesson at a time</span>
+              <span className="text-lg text-gray-600">
+                We focus on one impactful lesson at a time
+              </span>
               <div className="w-12 h-12 bg-[#428180] rounded-full flex items-center justify-center ml-4">
                 <Trophy className="w-6 h-6 text-[#FFFFFE]" />
               </div>
             </div>
             <h2 className="text-5xl font-bold text-[#264A4A] mb-4">
-              Shaping the <span className="text-[#428180]">future</span> of learners
+              Shaping the <span className="text-[#428180]">future</span> of
+              learners
             </h2>
           </div>
 
@@ -195,8 +216,12 @@ export default function Home() {
                   <Heart className="w-4 h-4 text-[#FFFFFE]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#264A4A] mb-2">Spiritual Development</h3>
-              <p className="text-gray-600 text-sm">Connection with Allah (SWT)</p>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-2">
+                Spiritual Development
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Connection with Allah (SWT)
+              </p>
               <p className="text-gray-500 text-xs">Islamic Values</p>
             </div>
 
@@ -213,7 +238,9 @@ export default function Home() {
                   <Brain className="w-4 h-4 text-[#FFFFFE]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#264A4A] mb-2">Intellectual Development</h3>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-2">
+                Intellectual Development
+              </h3>
               <p className="text-gray-600 text-sm">Project-Based Learning</p>
               <p className="text-gray-500 text-xs">Critical Thinking</p>
             </div>
@@ -231,7 +258,9 @@ export default function Home() {
                   <Activity className="w-4 h-4 text-[#264A4A]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#264A4A] mb-2">Physical Development</h3>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-2">
+                Physical Development
+              </h3>
               <p className="text-gray-600 text-sm">Sunnah-based wellness</p>
               <p className="text-gray-500 text-xs">Healthy Living</p>
             </div>
@@ -249,7 +278,9 @@ export default function Home() {
                   <Palette className="w-4 h-4 text-[#FFFFFE]" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#264A4A] mb-2">Aesthetic Development</h3>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-2">
+                Aesthetic Development
+              </h3>
               <p className="text-gray-600 text-sm">Creative Expression</p>
               <p className="text-gray-500 text-xs">Artistic Skills</p>
             </div>
@@ -264,9 +295,12 @@ export default function Home() {
             {/* CEO Message Card */}
             <div className="bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-3xl p-8 text-[#264A4A] relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4">Message from the CEO</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Message from the CEO
+                </h3>
                 <p className="text-lg mb-6 opacity-90">
-                  Assalamu Alaikum wa Rahmatullah, I warmly welcome you to our vibrant and purpose-driven community.
+                  Assalamu Alaikum wa Rahmatullah, I warmly welcome you to our
+                  vibrant and purpose-driven community.
                 </p>
                 <Link href="/about">
                   <button className="bg-[#264A4A] text-[#FFFFFE] hover:bg-[#428180] px-6 py-2 rounded-lg font-medium">
@@ -281,13 +315,18 @@ export default function Home() {
             {/* Research Partner Card */}
             <div className="bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-3xl p-8 text-[#FFFFFE] relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4">Our Research Partner</h3>
+                <h3 className="text-2xl font-bold mb-4">
+                  Our Research Partner
+                </h3>
                 <p className="text-lg mb-6 opacity-90">
-                  This initiative draws strength from over a decade of rigorous research by Elements Learning.
+                  This initiative draws strength from over a decade of rigorous
+                  research by Elements Learning.
                 </p>
+                <Link href="/about">
                 <button className="bg-[#FFFFFE] text-[#428180] hover:bg-[#B2B5A9] px-6 py-2 rounded-lg font-medium">
                   Learn More →
                 </button>
+                </Link>
               </div>
               <div className="absolute top-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mt-12"></div>
               <div className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 rounded-full"></div>
@@ -301,10 +340,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-[#428180] text-lg mb-4">Join us in our journey</p>
-              <h2 className="text-4xl font-bold text-[#FFFFFE] mb-6">Empower your kids to think smarter and sharper</h2>
+              <p className="text-[#428180] text-lg mb-4">
+                Join us in our journey
+              </p>
+              <h2 className="text-4xl font-bold text-[#FFFFFE] mb-6">
+                Empower your kids to think smarter and sharper
+              </h2>
               <p className="text-gray-300 text-lg mb-8">
-                Encourage kids to think critically, be creative, and solve problems for a better future.
+                Encourage kids to think critically, be creative, and solve
+                problems for a better future.
               </p>
               <Link href="/admissions">
                 <button className="bg-[#428180] text-[#FFFFFE] hover:bg-[#778985] px-6 py-2 rounded-lg font-medium">
@@ -320,16 +364,24 @@ export default function Home() {
                     <div className="w-4 h-4 bg-[#778985] rounded-full"></div>
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-[#FFFFFE] mb-2">45M+</div>
-                <p className="text-gray-300">Learners have achieved success across the globe</p>
+                <div className="text-3xl font-bold text-[#FFFFFE] mb-2">
+                  45M+
+                </div>
+                <p className="text-gray-300">
+                  Learners have achieved success across the globe
+                </p>
               </div>
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-[#B2B5A9] rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Star className="w-6 h-6 text-[#264A4A]" />
                 </div>
-                <div className="text-3xl font-bold text-[#FFFFFE] mb-2">16.1+</div>
-                <p className="text-gray-300">Mentors participating in the program</p>
+                <div className="text-3xl font-bold text-[#FFFFFE] mb-2">
+                  16.1+
+                </div>
+                <p className="text-gray-300">
+                  Mentors participating in the program
+                </p>
               </div>
             </div>
           </div>
@@ -355,8 +407,12 @@ export default function Home() {
             <div className="bg-gradient-to-br from-[#778985] to-[#B2B5A9] rounded-3xl p-8 text-[#264A4A] relative overflow-hidden">
               <div className="relative z-10">
                 <p className="text-lg opacity-90 mb-4">Upcoming Event</p>
-                <h3 className="text-3xl font-bold mb-6">Building children one at a time</h3>
-                <p className="text-lg opacity-90 mb-6">Celebrate Eid with the Families of Khudi Institute</p>
+                <h3 className="text-3xl font-bold mb-6">
+                  Building children one at a time
+                </h3>
+                <p className="text-lg opacity-90 mb-6">
+                  Celebrate Eid with the Families of Khudi Institute
+                </p>
                 <div className="flex items-center">
                   <div className="bg-[#428180] px-4 py-2 rounded-full text-[#FFFFFE] font-semibold mr-4 flex items-center">
                     <Calendar className="w-5 h-5 mr-2" />
@@ -370,5 +426,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
