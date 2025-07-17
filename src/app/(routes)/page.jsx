@@ -25,7 +25,7 @@ export default function Home() {
       <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000">
        <div className="logo-position z-30">
   <Image
-    src="/Khudi-Logo.png"
+    src="/khudi-Logo.png"
     alt="Logo"
     width={50}
     height={50}
