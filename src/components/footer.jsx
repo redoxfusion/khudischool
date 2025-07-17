@@ -3,7 +3,7 @@ import { Facebook, Instagram, Globe, Phone } from "lucide-react"
 
 export default function FooterWithBoxes() {
   return (
-    <footer className="bg-[#264A4A] text-white py-12">
+    <footer className="bg-[#264A4A] text-white py-12" id="no-body-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>

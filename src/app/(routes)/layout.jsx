@@ -17,7 +17,7 @@ export default function Layout({ children }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <Footer />
+      <Footer id="no-body-padding" />
 
       {/* Social Media Sidebar */}
       <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-3 z-50">

@@ -3,6 +3,32 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.logo-position {
+  position: absolute;
+  top: -1rem; /* roughly -top-4 */
+  left: -1.75rem; /* roughly -left-7 */
+  z-index: 30;
+}
+
+@media (max-width: 768px) {
+  .logo-position {
+    top: -0.5rem; /* adjust as needed */
+    left: -1rem;  /* adjust as needed */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  #no-body-padding {
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

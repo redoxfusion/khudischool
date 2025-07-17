@@ -4,10 +4,10 @@ import Image from "next/image" // Import Image component
 
 export default function CommunityPage() {
   return (
-    <>
+    <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20" id="no-body-padding" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">For the Community</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">A Living Hub of Learning and Belonging</p>
           <p className="text-lg mt-4 max-w-4xl mx-auto">
@@ -121,19 +121,19 @@ export default function CommunityPage() {
               here for you.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center">
-                <BookOpen className="w-8 h-8 text-[#428180] mx-auto mb-2" />
+              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
+                <BookOpen className="w-8 h-8 text-[#428180] mx-auto mb-2 " />
                 <h4 className="font-semibold text-[#264A4A]">Library Access</h4>
               </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center">
+              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
                 <Users className="w-8 h-8 text-[#428180] mx-auto mb-2" />
                 <h4 className="font-semibold text-[#264A4A]">Family Activities</h4>
               </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center">
+              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
                 <Calendar className="w-8 h-8 text-[#428180] mx-auto mb-2" />
                 <h4 className="font-semibold text-[#264A4A]">Workshops</h4>
               </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center">
+              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
                 <Heart className="w-8 h-8 text-[#428180] mx-auto mb-2" />
                 <h4 className="font-semibold text-[#264A4A]">Community</h4>
               </div>
@@ -244,6 +244,6 @@ export default function CommunityPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
