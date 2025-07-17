@@ -45,7 +45,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Application Type Selection */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#264A4A] mb-6">Choose Your Path</h2>

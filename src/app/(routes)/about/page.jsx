@@ -16,7 +16,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Vision */}
@@ -90,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       {/* Message from the CEO Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-br from-[#B2B5A9] to-[#778985] text-[#264A4A] p-8 rounded-3xl shadow-xl">
           <div className="flex flex-col lg:flex-row lg:items-center gap-8">
@@ -127,7 +127,7 @@ export default function AboutPage() {
             {/* Image on desktop - appears on right side */}
             <div className="hidden lg:block flex-shrink-0 lg:w-1/3">
               <img 
-                src="/path-to-ceo-image.jpg" 
+                src="/ceo.png" 
                 alt="CEO Abubakar Khan Lodhi" 
                 className="rounded-2xl shadow-lg w-full h-auto object-cover" 
               />
@@ -165,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#264A4A] mb-4">Our Values</h2>

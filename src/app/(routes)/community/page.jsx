@@ -18,7 +18,7 @@ export default function CommunityPage() {
       </section>
 
       {/* Community Philosophy */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <Heart className="w-12 h-12 text-[#428180] mx-auto mb-4" />
@@ -56,7 +56,7 @@ export default function CommunityPage() {
               />
             </div>
           </div>
-          <div className="bg-white p-8 rounded-2xl shadow-lg mt-8">
+          <div className="bg-[#FEFDF9] p-8 rounded-2xl shadow-lg mt-8">
             <ul className="space-y-4">
               <li className="flex items-start">
                 <BookOpen className="w-6 h-6 text-[#428180] mr-3 mt-1 flex-shrink-0" />
@@ -89,7 +89,7 @@ export default function CommunityPage() {
       </section>
 
       {/* For Families */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg">
@@ -120,24 +120,35 @@ export default function CommunityPage() {
               Whether you're looking for a quiet reading corner or an interactive family activity, there's something
               here for you.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
-                <BookOpen className="w-8 h-8 text-[#428180] mx-auto mb-2 " />
-                <h4 className="font-semibold text-[#264A4A]">Library Access</h4>
-              </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
-                <Users className="w-8 h-8 text-[#428180] mx-auto mb-2" />
-                <h4 className="font-semibold text-[#264A4A]">Family Activities</h4>
-              </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
-                <Calendar className="w-8 h-8 text-[#428180] mx-auto mb-2" />
-                <h4 className="font-semibold text-[#264A4A]">Workshops</h4>
-              </div>
-              <div className="bg-[#FEFDF9] p-4 rounded-lg text-center shadow-lg">
-                <Heart className="w-8 h-8 text-[#428180] mx-auto mb-2" />
-                <h4 className="font-semibold text-[#264A4A]">Community</h4>
-              </div>
-            </div>
+            <div className="bg-[#FEFDF9] p-8 rounded-2xl shadow-lg mt-8">
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <BookOpen className="w-6 h-6 text-[#428180] mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Access our full range of facilities, including the library, Math lab, makerspace, etc.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Users className="w-6 h-6 text-[#428180] mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-700">Enroll in thematic or project-based learning modules.</span>
+              </li>
+              <li className="flex items-start">
+                <Calendar className="w-6 h-6 text-[#428180] mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Join short-term programs and collaborative projects with our learners.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Heart className="w-6 h-6 text-[#428180] mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-700">
+                  Use learning resources and environments that complement your home curriculum.
+                </span>
+              </li>
+            </ul>
+            <p className="text-[#428180] font-semibold mt-6">
+              We provide a supportive environment where homeschoolers can explore, experiment, and engage with purpose.
+            </p>
+          </div>
           </div>
         </div>
       </section>
