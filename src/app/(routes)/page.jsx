@@ -20,18 +20,11 @@ export default function Home() {
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FEFDF9] via-[#F8F9FA] to-[#E9ECEF] py-12 sm:py-20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      
-      {/* Right Side - Floating Cards (Now comes first) */}
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000">
-       <div className="logo-position z-30">
-  <Image
-    src="/khudi-Logo.png"
-    alt="Logo"
-    width={50}
-    height={50}
-    className="w-[50px] h-auto"
-  />
-</div>
+
+      {/* Floating Cards - Order 1 on mobile, Order 2 on desktop */}
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000 order-1 lg:order-2">
+        {/* Removed logo from here */}
+        
         {/* Main Large Card */}
         <div className="absolute top-0 right-0 w-64 sm:w-72 lg:w-80 h-80 sm:h-88 lg:h-96 bg-white rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 overflow-hidden">
           <div className="p-6 sm:p-8 h-full flex flex-col justify-between">
@@ -60,7 +53,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Secondary Card - Top Left */}
+        {/* Secondary Cards */}
         <div className="absolute top-8 left-0 w-48 sm:w-56 lg:w-64 h-32 sm:h-36 lg:h-40 bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl shadow-xl transform -rotate-6 hover:rotate-0 transition-all duration-500">
           <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
             <div className="flex items-center justify-between">
@@ -74,7 +67,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Third Card - Bottom Left */}
         <div className="absolute bottom-16 left-8 w-44 sm:w-52 lg:w-56 h-32 sm:h-36 bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-2xl shadow-xl transform rotate-6 hover:rotate-0 transition-all duration-500">
           <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
             <div className="flex items-center justify-between">
@@ -88,17 +80,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Fourth Card - Small accent */}
-        <div className="absolute top-24 sm:top-32 right-12 sm:right-16 w-28 sm:w-32 h-20 sm:h-24 bg-white rounded-xl shadow-lg transform rotate-12 hover:rotate-6 transition-all duration-500">
-          <div className="p-3 sm:p-4 h-full flex flex-col justify-center items-center">
-            <div className="w-6 sm:w-8 h-6 sm:h-8 bg-[#428180] rounded-full flex items-center justify-center mb-2">
-              <Star className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
-            </div>
-            <span className="text-xs font-semibold text-[#264A4A] font-['Montserrat']">Excellence</span>
-          </div>
-        </div>
+       <div className="absolute top-[12rem] sm:top-[22rem] right-0 sm:right-4 w-28 sm:w-32 h-20 sm:h-24 bg-white rounded-xl shadow-lg transform rotate-12 hover:rotate-6 transition-all duration-500">
+  <div className="p-3 sm:p-4 h-full flex flex-col justify-center items-center">
+    <div className="w-6 sm:w-8 h-6 sm:h-8 bg-[#428180] rounded-full flex items-center justify-center mb-2">
+      <Star className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
+    </div>
+    <span className="text-xs font-semibold text-[#264A4A] font-['Montserrat']">Excellence</span>
+  </div>
+</div>
 
-        {/* Fifth Card - Bottom Right */}
+
         <div className="absolute bottom-0 right-8 w-40 sm:w-44 lg:w-48 h-28 sm:h-32 bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl shadow-lg transform -rotate-3 hover:rotate-0 transition-all duration-500">
           <div className="p-4 sm:p-5 h-full flex flex-col justify-between">
             <div className="flex items-center justify-between">
@@ -113,11 +104,21 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Left Content - Heading, Features, Buttons */}
-      <div className="space-y-6 sm:space-y-8 z-10">
+      {/* Left Content - Heading, Features, Buttons - Order 2 on mobile, Order 1 on desktop */}
+      <div className="space-y-6 sm:space-y-8 z-10 order-2 lg:order-1">
         <div className="space-y-4 sm:space-y-6">
-          <div className="inline-block">
+          
+          {/* Logo above heading */}
+          <div className="inline-block mb-2">
+            <Image
+              src="/khudi-Logo.png"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="w-[50px] h-auto mx-auto lg:mx-0"
+            />
           </div>
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#264A4A] leading-tight font-serif">
             A DIFFERENT
             <br />
@@ -125,6 +126,7 @@ export default function Home() {
             <br />
             SCHOOL
           </h1>
+
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg font-['Montserrat']">
             We're building the future of Islamic education through project-based learning and holistic
             development.
@@ -178,6 +180,7 @@ export default function Home() {
   <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#B2B5A9]/10 rounded-full blur-3xl"></div>
   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#428180]/5 to-[#264A4A]/5 rounded-full blur-3xl -z-10"></div>
 </section>
+
 
 
       {/* Smart Kids Section */}

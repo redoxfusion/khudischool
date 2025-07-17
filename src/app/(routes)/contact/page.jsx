@@ -1,16 +1,30 @@
-import { Mail, Phone, MapPin, Clock, Facebook, Instagram, Globe } from "lucide-react"
-import Image from "next/image" // Import Image component
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Facebook,
+  Instagram,
+  Globe,
+} from "lucide-react";
+import Image from "next/image"; // Import Image component
 
 export default function ContactPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20" id="no-body-padding">
+      <section
+        className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20"
+        id="no-body-padding"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">Get in Touch with Khudi Institute</p>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            Get in Touch with Khudi Institute
+          </p>
           <p className="text-lg mt-4 max-w-2xl mx-auto">
-            We're here to answer your questions and help you join our transformative learning community
+            We're here to answer your questions and help you join our
+            transformative learning community
           </p>
         </div>
       </section>
@@ -21,10 +35,13 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Details */}
             <div>
-              <h2 className="text-4xl font-bold text-[#264A4A] mb-8">Get in Touch</h2>
+              <h2 className="text-4xl font-bold text-[#264A4A] mb-8">
+                Get in Touch
+              </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Have questions about our programs, admissions, or want to learn more about our approach to education?
-                We'd love to hear from you.
+                Have questions about our programs, admissions, or want to learn
+                more about our approach to education? We'd love to hear from
+                you.
               </p>
 
               <div className="space-y-6">
@@ -34,14 +51,22 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">Email Us</h3>
+                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">
+                      Email Us
+                    </h3>
                     <p className="text-gray-600 mb-1">General Inquiries:</p>
-                    <a href="mailto:info@khudiinstitute.com" className="text-[#428180] hover:underline">
-                      info@khudiinstitute.com
+                    <a
+                      href="mailto:info@khudiinstitute.com"
+                      className="text-[#428180] hover:underline"
+                    >
+                      info@khudi.institute
                     </a>
                     <p className="text-gray-600 mt-2 mb-1">Admissions:</p>
-                    <a href="mailto:admissions@khudiinstitute.com" className="text-[#428180] hover:underline">
-                      admissions@khudiinstitute.com
+                    <a
+                      href="mailto:admissions@khudiinstitute.com"
+                      className="text-[#428180] hover:underline"
+                    >
+                      info@khudi.institute
                     </a>
                   </div>
                 </div>
@@ -52,13 +77,21 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">Call Us</h3>
+                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">
+                      Call Us
+                    </h3>
                     <p className="text-gray-600 mb-1">School Head:</p>
-                    <a href="tel:0302-5019924" className="text-[#428180] hover:underline text-lg font-medium">
+                    <a
+                      href="tel:0302-5019924"
+                      className="text-[#428180] hover:underline text-lg font-medium"
+                    >
                       0302-5019924
                     </a>
                     <p className="text-gray-600 mt-2 mb-1">Admin Office:</p>
-                    <a href="tel:+92-XXX-XXXXXXX" className="text-[#428180] hover:underline">
+                    <a
+                      href="tel:+92-XXX-XXXXXXX"
+                      className="text-[#428180] hover:underline"
+                    >
                       +92-XXX-XXXXXXX
                     </a>
                   </div>
@@ -70,13 +103,22 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">Visit Us</h3>
+                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">
+                      Visit Us
+                    </h3>
                     <p className="text-gray-600 mb-2">
-                      [Address to be provided]
+                      House # 1, Lane 9, main Park Road, Chattha Bakhtawar,
                       <br />
-                      [City, Province, Pakistan]
+                      Islamabad, Pakistan
                     </p>
-                    <button className="text-[#428180] hover:underline">View on Google Maps</button>
+                    <a
+                      href="https://maps.app.goo.gl/zxNBL7yZAkF6QA5P7?g_st=iwb"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#428180] hover:underline"
+                    >
+                      View on Google Maps
+                    </a>
                   </div>
                 </div>
 
@@ -86,7 +128,9 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">Office Hours</h3>
+                    <h3 className="text-xl font-semibold text-[#264A4A] mb-2">
+                      Office Hours
+                    </h3>
                     <div className="text-gray-600">
                       <p>Monday - Friday: 8:00 AM - 4:00 PM</p>
                       <p>Saturday: 9:00 AM - 2:00 PM</p>
@@ -99,11 +143,16 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="bg-[#FEFDF9] p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-[#264A4A] mb-6">Send us a Message</h3>
+              <h3 className="text-2xl font-bold text-[#264A4A] mb-6">
+                Send us a Message
+              </h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="firstName"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       First Name
                     </label>
                     <input
@@ -115,7 +164,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="lastName"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Last Name
                     </label>
                     <input
@@ -129,7 +181,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address
                   </label>
                   <input
@@ -142,7 +197,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -154,7 +212,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject
                   </label>
                   <select
@@ -174,7 +235,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -203,9 +267,12 @@ export default function ContactPage() {
       <section className="py-16 bg-[#FEFDF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#264A4A] mb-6">Connect With Us</h2>
+            <h2 className="text-4xl font-bold text-[#264A4A] mb-6">
+              Connect With Us
+            </h2>
             <p className="text-xl text-gray-600">
-              Follow us on social media for updates, insights, and community highlights
+              Follow us on social media for updates, insights, and community
+              highlights
             </p>
           </div>
 
@@ -217,7 +284,7 @@ export default function ContactPage() {
               <Facebook className="w-8 h-8 text-white" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/khudi.institute"
               className="w-16 h-16 bg-[#778985] rounded-full flex items-center justify-center hover:bg-[#264A4A] transition-colors"
             >
               <Instagram className="w-8 h-8 text-white" />
@@ -232,8 +299,13 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
-              <h3 className="text-xl font-bold text-[#264A4A] mb-3">Quick Admissions</h3>
-              <p className="text-gray-600 mb-4">Ready to join our community? Start your application process today.</p>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-3">
+                Quick Admissions
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Ready to join our community? Start your application process
+                today.
+              </p>
               <a
                 href="/admissions"
                 className="bg-[#428180] text-white px-6 py-2 rounded-lg hover:bg-[#264A4A] transition-colors inline-block"
@@ -243,16 +315,26 @@ export default function ContactPage() {
             </div>
 
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
-              <h3 className="text-xl font-bold text-[#264A4A] mb-3">Schedule a Visit</h3>
-              <p className="text-gray-600 mb-4">Experience our learning environment firsthand with a campus tour.</p>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-3">
+                Schedule a Visit
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Experience our learning environment firsthand with a campus
+                tour.
+              </p>
               <button className="bg-[#778985] text-white px-6 py-2 rounded-lg hover:bg-[#264A4A] transition-colors">
                 Book Tour
               </button>
             </div>
 
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
-              <h3 className="text-xl font-bold text-[#264A4A] mb-3">Join Our Team</h3>
-              <p className="text-gray-600 mb-4">Passionate about education? Explore career opportunities with us.</p>
+              <h3 className="text-xl font-bold text-[#264A4A] mb-3">
+                Join Our Team
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Passionate about education? Explore career opportunities with
+                us.
+              </p>
               <a
                 href="/careers"
                 className="bg-[#B2B5A9] text-white px-6 py-2 rounded-lg hover:bg-[#264A4A] transition-colors inline-block"
@@ -270,19 +352,24 @@ export default function ContactPage() {
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-[#264A4A] mb-4">Find Us</h2>
             <p className="text-xl text-gray-600">
-              Located in the heart of the community, easily accessible for families
+              Located in the heart of the community, easily accessible for
+              families
             </p>
           </div>
 
-          <div className="bg-gray-200 h-96 rounded-2xl flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">Interactive Map Coming Soon</p>
-              <p className="text-gray-500">In the meantime, contact us for detailed directions to our campus</p>
-            </div>
+          <div className="h-96 rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13619.29876412549!2d73.0551!3d33.6844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDQxJzAyLjAiTiA3M8KwMDMnMTguNCJF!5e0!3m2!1sen!2s!4v1628611265974!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

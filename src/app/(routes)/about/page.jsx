@@ -1,5 +1,6 @@
-import Layout from "@/app/(routes)/layout"
+
 import { Users, Target, Heart, MessageSquare, FlaskConical } from "lucide-react"
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -90,33 +91,54 @@ export default function AboutPage() {
 
       {/* Message from the CEO Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#B2B5A9] to-[#778985] text-[#264A4A] p-8 rounded-3xl shadow-xl">
-            <div className="flex items-center mb-6">
-              <MessageSquare className="w-8 h-8 text-[#264A4A] mr-3" />
-              <h2 className="text-3xl font-bold">Message from the CEO</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#B2B5A9] to-[#778985] text-[#264A4A] p-8 rounded-3xl shadow-xl">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+            {/* Text Content */}
+            <div className="flex-1">
+              <div className="flex items-center mb-6">
+                <MessageSquare className="w-8 h-8 text-[#264A4A] mr-3" />
+                <h2 className="text-3xl font-bold">Message from the CEO</h2>
+              </div>
+              {/* Image on mobile - appears after title */}
+              <div className="lg:hidden mb-6">
+                <Image 
+                  src="/ceo.png" 
+                  alt="CEO Abubakar Khan Lodhi" 
+                  width={300}
+                  height={300}
+                  className="rounded-2xl shadow-lg w-full h-auto object-cover max-w-sm mx-auto" 
+                />
+              </div>
+
+              <p className="text-lg leading-relaxed mb-4">
+                Assalamu Alaikum wa Rahmatullah, I warmly welcome you to our vibrant and purpose-driven community at Khudi Institute. This is more than just an educational space, it is a movement rooted in meaning, belonging, and transformation.
+              </p>
+              <p className="text-lg leading-relaxed mb-4">
+                At Khudi, our mission is to reimagine education in a way that nurtures individuals and communities to live enriched, peaceful lives, grounded in divine guidance, and to strive for success in both this world and the hereafter. We believe education must not only prepare us for a career, but also shape who we are, how we live, and how we serve.
+              </p>
+              <p className="text-lg leading-relaxed mb-6">
+                Whether you're a learner exploring your passions, a homeschooling parent looking for a like-minded community to belong to, or a professional seeking to share your knowledge and purpose — you have a place here. Together, let us revive the spirit of community, the kind that revives our Ummah.
+              </p>
+              <p className="text-xl font-semibold">With gratitude and hope,</p>
+              <p className="text-xl font-semibold">Abubakar Khan Lodhi</p>
             </div>
-            <p className="text-lg leading-relaxed mb-4">
-              Assalamu Alaikum wa Rahmatullah, I warmly welcome you to our vibrant and purpose-driven community at Khudi
-              Institute. This is more than just an educational space, it is a movement rooted in meaning, belonging, and
-              transformation.
-            </p>
-            <p className="text-lg leading-relaxed mb-4">
-              At Khudi, our mission is to reimagine education in a way that nurtures individuals and communities to live
-              enriched, peaceful lives, grounded in divine guidance, and to strive for success in both this world and
-              the hereafter. We believe education must not only prepare us for a career, but also shape who we are, how
-              we live, and how we serve.
-            </p>
-            <p className="text-lg leading-relaxed mb-6">
-              Whether you're a learner exploring your passions, a homeschooling parent looking for a like-minded
-              community to belong to, or a professional seeking to share your knowledge and purpose — you have a place
-              here. Together, let us revive the spirit of community, the kind that revives our Ummah.
-            </p>
-            <p className="text-xl font-semibold">With gratitude and hope,</p>
-            <p className="text-xl font-semibold">Abubakar Khan Lodhi</p>
+
+            {/* Image on desktop - appears on right side */}
+            <div className="hidden lg:block flex-shrink-0 lg:w-1/3">
+              <img 
+                src="/path-to-ceo-image.jpg" 
+                alt="CEO Abubakar Khan Lodhi" 
+                className="rounded-2xl shadow-lg w-full h-auto object-cover" 
+              />
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
+
+
 
       {/* Our Research Partner Section */}
       <section className="py-16 bg-[#FEFDF9]">
