@@ -111,7 +111,7 @@ export default function Home() {
           {/* Logo above heading */}
           <div className="inline-block mb-2">
             <Image
-              src="/khudi-Logo.png"
+              src="/khudi-logo.png"
               alt="Logo"
               width={50}
               height={50}
