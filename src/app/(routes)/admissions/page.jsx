@@ -1,7 +1,7 @@
 "use client"
 import { GraduationCap, Users, Send } from "lucide-react"
 import { useState } from "react"
-import Image from "next/image" // Import Image component
+import Image from "next/image"
 
 export default function AdmissionsPage() {
   const [formType, setFormType] = useState("regular")
@@ -15,20 +15,89 @@ export default function AdmissionsPage() {
     level: "",
     facilities: "",
   })
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-    alert("Application submitted successfully! We will contact you soon.")
+ const handleRegularSubmit = async () => {
+  const submission = {
+    formType: "regular", // changed
+    learnerName: formData.learnerName,
+    email: formData.email,
+    contact: formData.contact,
+    parentName: formData.parentName,
+    gender: formData.gender,
+    age: formData.age,
+    level: formData.level,
   }
 
-  const handleInputChange = (e) => {
+  const response = await fetch("/api/admissions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(submission),
+  })
+
+  return response
+}
+
+const handleHomeschoolSubmit = async () => {
+  const submission = {
+    formType: "homeschool", // changed
+    learnerName: formData.learnerName,
+    email: formData.email,
+    contact: formData.contact,
+    facilities: formData.facilities,
+  }
+
+  const response = await fetch("/api/admissions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(submission),
+  })
+
+  return response
+}
+
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setLoading(true)
+  try {
+    let response
+    if (formType === "regular") {
+      response = await handleRegularSubmit()
+    } else {
+      response = await handleHomeschoolSubmit()
+    }
+
+    const result = await response.json()
+    alert("Application submitted successfully!")
+
+    // Reset form
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+      learnerName: "",
+      parentName: "",
+      email: "",
+      contact: "",
+      gender: "",
+      age: "",
+      level: "",
+      facilities: "",
     })
+  } catch (err) {
+    console.error("Submission error:", err)
+    alert("There was an error submitting your application.")
+  } finally {
+    setLoading(false)
   }
+}
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target
+  setFormData((prev) => ({ ...prev, [name]: value }))
+}
+
 
   return (
     <div >

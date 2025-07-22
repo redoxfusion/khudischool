@@ -157,7 +157,7 @@ export default function AboutPage() {
               the foundational framework for our learning systems.
             </p>
             <p className="text-lg text-[#FFFFFE] font-semibold">
-              Join us in our journey to elevate education standards (By clicking below, it will take you to the website)
+              Join us in our journey to elevate education standards <a href=" https://www.elements-learning.com" className="underline"> Click Here.</a>
             </p>
             {/* You can add a Link/Button here if the website URL is available */}
           </div>
