@@ -559,7 +559,7 @@ export default function CareersPage() {
                 Application Review
               </h3>
               <p className="text-sm md:text-base text-gray-600">
-                We review all applications carefully and respond to qualified candidates
+                We review all applications carefully and respond to qualified candidates as soon as possible.
               </p>
             </div>
 
