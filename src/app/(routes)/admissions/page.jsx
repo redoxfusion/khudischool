@@ -1,11 +1,16 @@
-// app/(routes)/admissions/AdmissionsContent.js
+// app/(routes)/admissions/page.js
 "use client"
 import { GraduationCap, Users, Send } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useCallback, Suspense } from "react"
 import Image from "next/image"
-import { useSearchParams } from "next/navigation"
+import SearchParamsHandler from "./SearchParamsHandler"
 
-export default function AdmissionsContent() {
+// Loading component for the search params handler
+function SearchParamsLoading() {
+  return null // No visible loading for this small component
+}
+
+export default function AdmissionsPage() {
   const [formType, setFormType] = useState("regular")
   const [formData, setFormData] = useState({
     learnerName: "",
@@ -17,19 +22,13 @@ export default function AdmissionsContent() {
     level: "",
     facilities: "",
   })
-
-  const searchParams = useSearchParams()
-
-  useEffect(() => {
-    const typeParam = searchParams.get("type")
-    if (typeParam === "homeschool") {
-      setFormType("homeschool")
-    } else if (typeParam === "regular") {
-      setFormType("regular")
-    }
-  }, [searchParams])
   
   const [loading, setLoading] = useState(false)
+
+  // Callback to handle form type changes from search params
+  const handleFormTypeChange = useCallback((type) => {
+    setFormType(type)
+  }, [])
 
   const handleRegularSubmit = async () => {
     const submission = {
@@ -114,6 +113,11 @@ export default function AdmissionsContent() {
 
   return (
     <div>
+      {/* Search params handler wrapped in Suspense */}
+      <Suspense fallback={<SearchParamsLoading />}>
+        <SearchParamsHandler onFormTypeChange={handleFormTypeChange} />
+      </Suspense>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -384,7 +388,7 @@ export default function AdmissionsContent() {
                 <span className="text-2xl text-white font-bold">3</span>
               </div>
               <h3 className="text-xl font-bold text-[#264A4A] mb-3">Welcome to Khudi</h3>
-              <p className="text-gray-600">
+              <p className="text-center pt-6">
                 Once approved, we'll guide you through the enrollment process and welcome you to our community
               </p>
             </div>
