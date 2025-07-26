@@ -1,14 +1,7 @@
-// app/(routes)/admissions/page.js
 "use client"
 import { GraduationCap, Users, Send } from "lucide-react"
-import { useState, useCallback, Suspense } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import SearchParamsHandler from "./SearchParamsHandler"
-
-// Loading component for the search params handler
-function SearchParamsLoading() {
-  return null // No visible loading for this small component
-}
 
 export default function AdmissionsPage() {
   const [formType, setFormType] = useState("regular")
@@ -22,104 +15,94 @@ export default function AdmissionsPage() {
     level: "",
     facilities: "",
   })
-  
   const [loading, setLoading] = useState(false)
 
-  // Callback to handle form type changes from search params
-  const handleFormTypeChange = useCallback((type) => {
-    setFormType(type)
-  }, [])
+ const handleRegularSubmit = async () => {
+  const submission = {
+    formType: "regular", // changed
+    learnerName: formData.learnerName,
+    email: formData.email,
+    contact: formData.contact,
+    parentName: formData.parentName,
+    gender: formData.gender,
+    age: formData.age,
+    level: formData.level,
+  }
 
-  const handleRegularSubmit = async () => {
-    const submission = {
-      formType: "regular",
-      learnerName: formData.learnerName,
-      email: formData.email,
-      contact: formData.contact,
-      parentName: formData.parentName,
-      gender: formData.gender,
-      age: formData.age,
-      level: formData.level,
+  const response = await fetch("/api/admissions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(submission),
+  })
+
+  return response
+}
+
+const handleHomeschoolSubmit = async () => {
+  const submission = {
+    formType: "homeschool", // changed
+    learnerName: formData.learnerName,
+    email: formData.email,
+    contact: formData.contact,
+    facilities: formData.facilities,
+  }
+
+  const response = await fetch("/api/admissions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(submission),
+  })
+
+  return response
+}
+
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setLoading(true)
+  try {
+    let response
+    if (formType === "regular") {
+      response = await handleRegularSubmit()
+    } else {
+      response = await handleHomeschoolSubmit()
     }
 
-    const response = await fetch("/api/admissions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(submission),
+    const result = await response.json()
+    alert("Application submitted successfully!")
+
+    // Reset form
+    setFormData({
+      learnerName: "",
+      parentName: "",
+      email: "",
+      contact: "",
+      gender: "",
+      age: "",
+      level: "",
+      facilities: "",
     })
-
-    return response
+  } catch (err) {
+    console.error("Submission error:", err)
+    alert("There was an error submitting your application.")
+  } finally {
+    setLoading(false)
   }
+}
 
-  const handleHomeschoolSubmit = async () => {
-    const submission = {
-      formType: "homeschool",
-      learnerName: formData.learnerName,
-      email: formData.email,
-      contact: formData.contact,
-      facilities: formData.facilities,
-    }
+const handleInputChange = (e) => {
+  const { name, value } = e.target
+  setFormData((prev) => ({ ...prev, [name]: value }))
+}
 
-    const response = await fetch("/api/admissions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(submission),
-    })
-
-    return response
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      let response
-      if (formType === "regular") {
-        response = await handleRegularSubmit()
-      } else {
-        response = await handleHomeschoolSubmit()
-      }
-
-      const result = await response.json()
-      alert("Application submitted successfully!")
-
-      // Reset form
-      setFormData({
-        learnerName: "",
-        parentName: "",
-        email: "",
-        contact: "",
-        gender: "",
-        age: "",
-        level: "",
-        facilities: "",
-      })
-    } catch (err) {
-      console.error("Submission error:", err)
-      alert("There was an error submitting your application.")
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
 
   return (
-    <div>
-      {/* Search params handler wrapped in Suspense */}
-      <Suspense fallback={<SearchParamsLoading />}>
-        <SearchParamsHandler onFormTypeChange={handleFormTypeChange} />
-      </Suspense>
-
+    <div >
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
+      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Admissions</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">Join us in our journey to elevate education standards</p>
@@ -343,11 +326,10 @@ export default function AdmissionsPage() {
               <div className="text-center pt-6">
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="bg-[#428180] text-white px-8 py-3 rounded-lg hover:bg-[#264A4A] transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#428180] text-white px-8 py-3 rounded-lg hover:bg-[#264A4A] transition-colors inline-flex items-center"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  {loading ? "Submitting..." : "Submit Application"}
+                  Submit Application
                 </button>
               </div>
             </form>
@@ -388,7 +370,7 @@ export default function AdmissionsPage() {
                 <span className="text-2xl text-white font-bold">3</span>
               </div>
               <h3 className="text-xl font-bold text-[#264A4A] mb-3">Welcome to Khudi</h3>
-              <p className="text-center pt-6">
+              <p className="text-gray-600">
                 Once approved, we'll guide you through the enrollment process and welcome you to our community
               </p>
             </div>
