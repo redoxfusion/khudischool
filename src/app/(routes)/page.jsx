@@ -11,177 +11,240 @@ import {
   Calendar,
   Sparkles,
   RotateCcw,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [currentEventIndex, setCurrentEventIndex] = useState(0);
+
+  const events = [
+    {
+      title: "Building children one at a time",
+      description: "Celebrate Eid with the Families of Khudi Institute",
+      date: "07 March 2025",
+      image: "/Students.jpeg",
+    },
+    {
+      title: "Annual Science Fair",
+      description: "Showcasing innovative projects by our talented learners.",
+      date: "15 April 2025",
+      image: "/placeholder.svg?height=400&width=600",
+    },
+    {
+      title: "Community Outreach Day",
+      description:
+        "Join us in serving the local community and making a difference.",
+      date: "20 May 2025",
+      image: "/placeholder.svg?height=400&width=600",
+    },
+  ];
+
+  const nextEvent = () => {
+    setCurrentEventIndex((prevIndex) => (prevIndex + 1) % events.length);
+  };
+
+  const prevEvent = () => {
+    setCurrentEventIndex(
+      (prevIndex) => (prevIndex - 1 + events.length) % events.length
+    );
+  };
+
+  const currentEvent = events[currentEventIndex];
+
   return (
     <div className="bg-[#FEFDF9] text-[#428180] ">
       {/* Hero Section */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FEFDF9] via-[#F8F9FA] to-[#E9ECEF] py-12 sm:py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-      {/* Floating Cards - Order 1 on mobile, Order 2 on desktop */}
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000 order-1 lg:order-2">
-        {/* Removed logo from here */}
-        
-        {/* Main Large Card */}
-        <div className="absolute top-0 right-0 w-64 sm:w-72 lg:w-80 h-80 sm:h-88 lg:h-96 bg-white rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 overflow-hidden">
-          <div className="p-6 sm:p-8 h-full flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4 sm:mb-6">
-                <div className="w-3 h-3 bg-[#428180] rounded-full"></div>
-                <span className="text-xs text-gray-400 font-medium font-['Montserrat']">KHUDI</span>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FEFDF9] via-[#F8F9FA] to-[#E9ECEF] py-12 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Floating Cards - Order 1 on mobile, Order 2 on desktop */}
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000 order-1 lg:order-2">
+              {/* Removed logo from here */}
+              {/* Main Large Card */}
+              <div className="absolute top-0 right-0 w-64 sm:w-72 lg:w-80 h-80 sm:h-88 lg:h-96 bg-white rounded-3xl shadow-2xl transform rotate-1 hover:rotate-0 transition-all duration-500 overflow-hidden">
+                <div className="p-6 sm:p-8 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4 sm:mb-6">
+                      <div className="w-3 h-3 bg-[#428180] rounded-full"></div>
+                      <span className="text-xs text-gray-400 font-medium font-['Montserrat']">
+                        KHUDI
+                      </span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#264A4A] leading-tight mb-4 font-serif">
+                      WELCOME TO
+                      <br />
+                      THE FUTURE OF
+                      <br />
+                      LEARNING
+                    </h3>
+                  </div>
+                  <div className="relative">
+                    <Image
+                      src="/hero.jpeg"
+                      alt="Students learning"
+                      width={200}
+                      height={150}
+                      className="rounded-2xl object-cover w-full h-24 sm:h-32"
+                    />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#264A4A] leading-tight mb-4 font-serif">
-                WELCOME TO
-                <br />
-                THE FUTURE OF
-                <br />
-                LEARNING
-              </h3>
+              {/* Secondary Cards */}
+              <a href="/offering">
+              <div className="absolute top-12 left-0 w-44 sm:w-52 lg:w-60 h-28 sm:h-32 lg:h-36 bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500">
+                <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                    <span className="text-xs opacity-80 font-['Montserrat']">
+                      PROGRAMS
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
+                      Lifelong Learning Path
+                    </h4>
+                    <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                      Empowering young minds
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="/community">
+              <div className="absolute bottom-12 left-4 w-44 sm:w-52 lg:w-60 h-36 sm:h-40 bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                    <span className="text-xs opacity-80 font-['Montserrat']">
+                      COMMUNITY
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
+                      A Thriving Global Circle
+                    </h4>
+                    <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                      It Takes a Community To Raise a Student
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </a>
+              {/* Floating Cards */}
+              <div className="absolute top-[10rem] sm:top-[18rem] right-0 sm:right-4 w-24 sm:w-28 h-16 sm:h-20 bg-white rounded-xl shadow-lg transform rotate-6 hover:rotate-3 transition-all duration-500">
+                <div className="p-3 sm:p-4 h-full flex flex-col justify-center items-center">
+                  <div className="w-6 sm:w-8 h-6 sm:h-8 bg-[#428180] rounded-full flex items-center justify-center mb-2">
+                    <Star className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
+                  </div>
+                  <span className="text-xs font-semibold text-[#264A4A] font-['Montserrat']">
+                    Excellence
+                  </span>
+                </div>
+              </div>
+              <div className="absolute bottom-0 right-4 w-36 sm:w-40 lg:w-44 h-24 sm:h-28 bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl shadow-lg transform -rotate-1 hover:rotate-0 transition-all duration-500">
+                <div className="p-4 sm:p-5 h-full flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    <span className="text-xs text-gray-600 font-['Montserrat']">
+                      ISLAMIC VALUES
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-[#264A4A] mb-1 font-serif">
+                      Rooted in Islam
+                    </h4>
+                    <p className="text-xs text-gray-600 font-['Montserrat']">
+                      Spiritual development
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <Image
-                src="/hero.jpeg"
-                alt="Students learning"
-                width={200}
-                height={150}
-                className="rounded-2xl object-cover w-full h-24 sm:h-32"
-              />
+            {/* Left Content - Heading, Features, Buttons - Order 2 on mobile, Order 1 on desktop */}
+            <div className="space-y-6 sm:space-y-8 z-10 order-2 lg:order-1">
+              <div className="space-y-4 sm:space-y-6">
+                {/* Logo above heading */}
+                <div className="inline-block mb-2">
+                  <Image
+                    src="/khudi-logo.png"
+                    alt="Logo"
+                    width={50}
+                    height={50}
+                    className="w-[50px] h-auto mx-auto lg:mx-0"
+                  />
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#264A4A] leading-tight font-serif">
+                  A DIFFERENT
+                  <br />
+                  <span className="text-[#428180]">KIND OF</span>
+                  <br />
+                  SCHOOL
+                </h1>
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg font-['Montserrat']">
+                  Khudi Institute is an alternative school and a resource center
+                  for homeschoolers, focused on the holistic development of each
+                  learner.
+                </p>
+              </div>
+              {/* Feature Points */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">
+                      Project-based
+                    </p>
+                    <p className="text-xs text-gray-600 font-['Montserrat']">
+                      learning
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">
+                      Islam-centered
+                    </p>
+                    <p className="text-xs text-gray-600 font-['Montserrat']">
+                      approach
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
+                  <div>
+                    <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">
+                      Community
+                    </p>
+                    <p className="text-xs text-gray-600 font-['Montserrat']">
+                      engagement
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Link href="/admissions?type=regular">
+                  <button className="bg-[#264A4A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl hover:bg-[#428180] transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base font-['Montserrat']">
+                    For Regular Students
+                  </button>
+                </Link>
+                <Link href="/admissions?type=homeschool">
+                  <button className="border-2 border-[#264A4A] text-[#264A4A] px-6 sm:px-8 py-3 sm:py-4 rounded-2xl hover:bg-[#264A4A] hover:text-white transition-all duration-300 font-medium backdrop-blur-sm bg-white/50 text-sm sm:text-base font-['Montserrat']">
+                    For Home Schoolers
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Secondary Cards */}
-        <div className="absolute top-8 left-0 w-48 sm:w-56 lg:w-64 h-32 sm:h-36 lg:h-40 bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl shadow-xl transform -rotate-6 hover:rotate-0 transition-all duration-500">
-          <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <span className="text-xs opacity-80 font-['Montserrat']">PROGRAMS</span>
-            </div>
-            <div>
-              <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">7-Year Journey</h4>
-              <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">Transformative learning experience</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-16 left-8 w-44 sm:w-52 lg:w-56 h-32 sm:h-36 bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-2xl shadow-xl transform rotate-6 hover:rotate-0 transition-all duration-500">
-          <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <span className="text-xs opacity-80 font-['Montserrat']">COMMUNITY</span>
-            </div>
-            <div>
-              <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">Join 7.5k+</h4>
-              <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">Active learners worldwide</p>
-            </div>
-          </div>
-        </div>
-
-       <div className="absolute top-[12rem] sm:top-[22rem] right-0 sm:right-4 w-28 sm:w-32 h-20 sm:h-24 bg-white rounded-xl shadow-lg transform rotate-12 hover:rotate-6 transition-all duration-500">
-  <div className="p-3 sm:p-4 h-full flex flex-col justify-center items-center">
-    <div className="w-6 sm:w-8 h-6 sm:h-8 bg-[#428180] rounded-full flex items-center justify-center mb-2">
-      <Star className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
-    </div>
-    <span className="text-xs font-semibold text-[#264A4A] font-['Montserrat']">Excellence</span>
-  </div>
-</div>
-
-
-        <div className="absolute bottom-0 right-8 w-40 sm:w-44 lg:w-48 h-28 sm:h-32 bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl shadow-lg transform -rotate-3 hover:rotate-0 transition-all duration-500">
-          <div className="p-4 sm:p-5 h-full flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-              <span className="text-xs text-gray-600 font-['Montserrat']">ISLAMIC VALUES</span>
-            </div>
-            <div>
-              <h4 className="text-sm sm:text-base font-bold text-[#264A4A] mb-1 font-serif">Rooted in Faith</h4>
-              <p className="text-xs text-gray-600 font-['Montserrat']">Spiritual development</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Left Content - Heading, Features, Buttons - Order 2 on mobile, Order 1 on desktop */}
-      <div className="space-y-6 sm:space-y-8 z-10 order-2 lg:order-1">
-        <div className="space-y-4 sm:space-y-6">
-          
-          {/* Logo above heading */}
-          <div className="inline-block mb-2">
-            <Image
-              src="/khudi-logo.png"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="w-[50px] h-auto mx-auto lg:mx-0"
-            />
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#264A4A] leading-tight font-serif">
-            A DIFFERENT
-            <br />
-            <span className="text-[#428180]">KIND OF</span>
-            <br />
-            SCHOOL
-          </h1>
-
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg font-['Montserrat']">
-            We're building the future of Islamic education through project-based learning and holistic
-            development.
-          </p>
-        </div>
-
-        {/* Feature Points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-          <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
-            <div>
-              <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">Project-based</p>
-              <p className="text-xs text-gray-600 font-['Montserrat']">learning</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
-            <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
-            <div>
-              <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">Faith-centered</p>
-              <p className="text-xs text-gray-600 font-['Montserrat']">approach</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 sm:space-x-3 bg-white/50 backdrop-blur-sm rounded-xl p-3 sm:p-4">
-            <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#428180]" />
-            <div>
-              <p className="font-semibold text-[#264A4A] text-xs sm:text-sm font-serif">Community</p>
-              <p className="text-xs text-gray-600 font-['Montserrat']">engagement</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <Link href="/admissions">
-            <button className="bg-[#264A4A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl hover:bg-[#428180] transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base font-['Montserrat']">
-              For Regular Students
-            </button>
-          </Link>
-          <Link href="/community">
-            <button className="border-2 border-[#264A4A] text-[#264A4A] px-6 sm:px-8 py-3 sm:py-4 rounded-2xl hover:bg-[#264A4A] hover:text-white transition-all duration-300 font-medium backdrop-blur-sm bg-white/50 text-sm sm:text-base font-['Montserrat']">
-              For Home Schoolers
-            </button>
-          </Link>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Background Elements */}
-  <div className="absolute top-20 left-20 w-32 h-32 bg-[#428180]/10 rounded-full blur-3xl"></div>
-  <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#B2B5A9]/10 rounded-full blur-3xl"></div>
-  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#428180]/5 to-[#264A4A]/5 rounded-full blur-3xl -z-10"></div>
-</section>
-
-
+        {/* Background Elements */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#428180]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#B2B5A9]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#428180]/5 to-[#264A4A]/5 rounded-full blur-3xl -z-10"></div>
+      </section>
 
       {/* Smart Kids Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-[#FEFDF9]">
@@ -203,7 +266,6 @@ export default function Home() {
                 Enroll Now →
               </Link>
             </div>
-
             {/* Cards Grid */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {/* Orange Card */}
@@ -216,12 +278,15 @@ export default function Home() {
                     height={50}
                     className="mb-3 sm:mb-4 border-2 border-white rounded-full sm:w-[60px] sm:h-[60px]"
                   />
-                  <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 font-serif">Life Skills</h3>
-                  <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">for Kids</p>
+                  <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 font-serif">
+                    Life Skills
+                  </h3>
+                  <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                    for Kids
+                  </p>
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 sm:w-20 h-16 sm:h-20 bg-white/10 rounded-full"></div>
               </div>
-
               {/* Green Card */}
               <div className="bg-gradient-to-br from-[#778985] to-[#B2B5A9] rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-[#FFFFFE] relative overflow-hidden mt-4 sm:mt-8 shadow-xl hover:scale-105 transition-transform duration-300">
                 <div className="relative z-10">
@@ -232,12 +297,15 @@ export default function Home() {
                     height={50}
                     className="mb-3 sm:mb-4 border-2 border-white rounded-full sm:w-[60px] sm:h-[60px]"
                   />
-                  <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 font-serif">Imagination</h3>
-                  <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">is power</p>
+                  <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 font-serif">
+                    Imagination
+                  </h3>
+                  <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                    is power
+                  </p>
                 </div>
                 <div className="absolute top-0 left-0 w-12 sm:w-16 h-12 sm:h-16 bg-white/10 rounded-full -ml-6 sm:-ml-8 -mt-6 sm:-mt-8"></div>
               </div>
-
               {/* Blue Card */}
               <div className="col-span-2 bg-gradient-to-r from-[#2D4F4F] to-[#264A4A] rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-[#FFFFFE] relative overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center justify-between">
@@ -281,7 +349,6 @@ export default function Home() {
               learners
             </h2>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Student Cards with Images */}
             <div className="text-center">
@@ -303,9 +370,10 @@ export default function Home() {
               <p className="text-gray-600 text-sm font-['Montserrat']">
                 Connection with Allah (SWT)
               </p>
-              <p className="text-gray-500 text-xs font-['Montserrat']">Islamic Values</p>
+              <p className="text-gray-500 text-xs font-['Montserrat']">
+                Islamic Values
+              </p>
             </div>
-
             <div className="text-center">
               <div className="relative mb-4 sm:mb-6">
                 <Image
@@ -322,10 +390,13 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-bold text-[#264A4A] mb-2 font-serif">
                 Intellectual Development
               </h3>
-              <p className="text-gray-600 text-sm font-['Montserrat']">Project-Based Learning</p>
-              <p className="text-gray-500 text-xs font-['Montserrat']">Critical Thinking</p>
+              <p className="text-gray-600 text-sm font-['Montserrat']">
+                Project-Based Learning
+              </p>
+              <p className="text-gray-500 text-xs font-['Montserrat']">
+                Critical Thinking
+              </p>
             </div>
-
             <div className="text-center">
               <div className="relative mb-4 sm:mb-6">
                 <Image
@@ -342,10 +413,13 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-bold text-[#264A4A] mb-2 font-serif">
                 Physical Development
               </h3>
-              <p className="text-gray-600 text-sm font-['Montserrat']">Sunnah-based wellness</p>
-              <p className="text-gray-500 text-xs font-['Montserrat']">Healthy Living</p>
+              <p className="text-gray-600 text-sm font-['Montserrat']">
+                Sunnah-based wellness
+              </p>
+              <p className="text-gray-500 text-xs font-['Montserrat']">
+                Healthy Living
+              </p>
             </div>
-
             <div className="text-center">
               <div className="relative mb-4 sm:mb-6">
                 <Image
@@ -362,8 +436,12 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-bold text-[#264A4A] mb-2 font-serif">
                 Aesthetic Development
               </h3>
-              <p className="text-gray-600 text-sm font-['Montserrat']">Creative Expression</p>
-              <p className="text-gray-500 text-xs font-['Montserrat']">Artistic Skills</p>
+              <p className="text-gray-600 text-sm font-['Montserrat']">
+                Creative Expression
+              </p>
+              <p className="text-gray-500 text-xs font-['Montserrat']">
+                Artistic Skills
+              </p>
             </div>
           </div>
         </div>
@@ -392,7 +470,6 @@ export default function Home() {
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-white/10 rounded-full"></div>
               <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full"></div>
             </div>
-
             {/* Research Partner Card */}
             <div className="bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-[#FFFFFE] relative overflow-hidden">
               <div className="relative z-10">
@@ -437,7 +514,6 @@ export default function Home() {
                 </button>
               </Link>
             </div>
-
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
                 <div className="w-14 sm:w-16 h-14 sm:h-16 bg-[#778985] rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -452,7 +528,6 @@ export default function Home() {
                   Learners have achieved success across the globe
                 </p>
               </div>
-
               <div className="text-center">
                 <div className="w-14 sm:w-16 h-14 sm:h-16 bg-[#B2B5A9] rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Star className="w-5 sm:w-6 h-5 sm:h-6 text-[#264A4A]" />
@@ -469,40 +544,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final Event Section */}
+      {/* Final Event Section - Carousel */}
       <section className="py-12 sm:py-16 lg:py-20 bg-[#FEFDF9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left side with image */}
             <div className="relative">
               <Image
-                src="/Students.jpeg"
-                alt="Students Learning Together"
+                src={currentEvent.image || "/placeholder.svg"}
+                alt={currentEvent.title}
                 width={600}
                 height={400}
-                className="rounded-2xl sm:rounded-3xl object-cover"
+                className="rounded-2xl sm:rounded-3xl object-cover w-full h-auto"
               />
             </div>
-
             {/* Right side with event info */}
             <div className="bg-gradient-to-br from-[#778985] to-[#B2B5A9] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-[#264A4A] relative overflow-hidden">
               <div className="relative z-10">
-                <p className="text-base sm:text-lg opacity-90 mb-4 font-['Montserrat']">Upcoming Event</p>
+                <p className="text-base sm:text-lg opacity-90 mb-4 font-['Montserrat']">
+                  Upcoming Event
+                </p>
                 <h3 className="text-2xl sm:text-3xl font-bold mb-6 font-serif">
-                  Building children one at a time
+                  {currentEvent.title}
                 </h3>
                 <p className="text-base sm:text-lg opacity-90 mb-6 font-['Montserrat']">
-                  Celebrate Eid with the Families of Khudi Institute
+                  {currentEvent.description}
                 </p>
                 <div className="flex items-center">
                   <div className="bg-[#428180] px-4 py-2 rounded-full text-[#FFFFFE] font-semibold mr-4 flex items-center text-sm sm:text-base font-['Montserrat']">
                     <Calendar className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                    {"07 March 2025"}
+                    {currentEvent.date}
                   </div>
                 </div>
               </div>
               <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full"></div>
             </div>
+          </div>
+
+          {/* Carousel Navigation Buttons */}
+          <button
+            onClick={prevEvent}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 sm:-ml-8 bg-[#428180] text-white p-3 rounded-full shadow-lg hover:bg-[#264A4A] transition-colors z-20"
+            aria-label="Previous event"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextEvent}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 sm:-mr-8 bg-[#428180] text-white p-3 rounded-full shadow-lg hover:bg-[#264A4A] transition-colors z-20"
+            aria-label="Next event"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {events.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentEventIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentEventIndex === index
+                    ? "bg-[#428180]"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to event ${index + 1}`}
+              ></button>
+            ))}
           </div>
         </div>
       </section>
