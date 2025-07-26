@@ -1,10 +1,11 @@
+// app/(routes)/admissions/AdmissionsContent.js
 "use client"
 import { GraduationCap, Users, Send } from "lucide-react"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 
-export default function AdmissionsPage() {
+export default function AdmissionsContent() {
   const [formType, setFormType] = useState("regular")
   const [formData, setFormData] = useState({
     learnerName: "",
@@ -30,90 +31,89 @@ export default function AdmissionsPage() {
   
   const [loading, setLoading] = useState(false)
 
- const handleRegularSubmit = async () => {
-  const submission = {
-    formType: "regular", // changed
-    learnerName: formData.learnerName,
-    email: formData.email,
-    contact: formData.contact,
-    parentName: formData.parentName,
-    gender: formData.gender,
-    age: formData.age,
-    level: formData.level,
-  }
-
-  const response = await fetch("/api/admissions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(submission),
-  })
-
-  return response
-}
-
-const handleHomeschoolSubmit = async () => {
-  const submission = {
-    formType: "homeschool", // changed
-    learnerName: formData.learnerName,
-    email: formData.email,
-    contact: formData.contact,
-    facilities: formData.facilities,
-  }
-
-  const response = await fetch("/api/admissions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(submission),
-  })
-
-  return response
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault()
-  setLoading(true)
-  try {
-    let response
-    if (formType === "regular") {
-      response = await handleRegularSubmit()
-    } else {
-      response = await handleHomeschoolSubmit()
+  const handleRegularSubmit = async () => {
+    const submission = {
+      formType: "regular",
+      learnerName: formData.learnerName,
+      email: formData.email,
+      contact: formData.contact,
+      parentName: formData.parentName,
+      gender: formData.gender,
+      age: formData.age,
+      level: formData.level,
     }
 
-    const result = await response.json()
-    alert("Application submitted successfully!")
-
-    // Reset form
-    setFormData({
-      learnerName: "",
-      parentName: "",
-      email: "",
-      contact: "",
-      gender: "",
-      age: "",
-      level: "",
-      facilities: "",
+    const response = await fetch("/api/admissions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(submission),
     })
-  } catch (err) {
-    console.error("Submission error:", err)
-    alert("There was an error submitting your application.")
-  } finally {
-    setLoading(false)
+
+    return response
   }
-}
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target
-  setFormData((prev) => ({ ...prev, [name]: value }))
-}
+  const handleHomeschoolSubmit = async () => {
+    const submission = {
+      formType: "homeschool",
+      learnerName: formData.learnerName,
+      email: formData.email,
+      contact: formData.contact,
+      facilities: formData.facilities,
+    }
 
+    const response = await fetch("/api/admissions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(submission),
+    })
+
+    return response
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      let response
+      if (formType === "regular") {
+        response = await handleRegularSubmit()
+      } else {
+        response = await handleHomeschoolSubmit()
+      }
+
+      const result = await response.json()
+      alert("Application submitted successfully!")
+
+      // Reset form
+      setFormData({
+        learnerName: "",
+        parentName: "",
+        email: "",
+        contact: "",
+        gender: "",
+        age: "",
+        level: "",
+        facilities: "",
+      })
+    } catch (err) {
+      console.error("Submission error:", err)
+      alert("There was an error submitting your application.")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   return (
-    <div >
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -339,10 +339,11 @@ const handleInputChange = (e) => {
               <div className="text-center pt-6">
                 <button
                   type="submit"
-                  className="bg-[#428180] text-white px-8 py-3 rounded-lg hover:bg-[#264A4A] transition-colors inline-flex items-center"
+                  disabled={loading}
+                  className="bg-[#428180] text-white px-8 py-3 rounded-lg hover:bg-[#264A4A] transition-colors inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Submit Application
+                  {loading ? "Submitting..." : "Submit Application"}
                 </button>
               </div>
             </form>
