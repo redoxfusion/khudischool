@@ -93,44 +93,44 @@ export default function Home() {
               </div>
               {/* Secondary Cards */}
               <a href="/offering">
-              <div className="absolute top-12 left-0 w-44 sm:w-52 lg:w-60 h-28 sm:h-32 lg:h-36 bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500">
-                <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-xs opacity-80 font-['Montserrat']">
-                      PROGRAMS
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
-                      Lifelong Learning Path
-                    </h4>
-                    <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
-                      Empowering young minds
-                    </p>
+                <div className="absolute top-12 left-0 w-44 sm:w-52 lg:w-60 h-28 sm:h-32 lg:h-36 bg-gradient-to-br from-[#428180] to-[#264A4A] rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500">
+                  <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
+                    <div className="flex items-center justify-between">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span className="text-xs opacity-80 font-['Montserrat']">
+                        PROGRAMS
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
+                        Lifelong Learning Path
+                      </h4>
+                      <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                        Empowering young minds
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               </a>
               <a href="/community">
-              <div className="absolute bottom-12 left-4 w-44 sm:w-52 lg:w-60 h-36 sm:h-40 bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-all duration-500">
-                <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-xs opacity-80 font-['Montserrat']">
-                      COMMUNITY
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
-                      A Thriving Global Circle
-                    </h4>
-                    <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
-                      It Takes a Community To Raise a Student
-                    </p>
+                <div className="absolute bottom-12 left-4 w-44 sm:w-52 lg:w-60 h-36 sm:h-40 bg-gradient-to-br from-[#B2B5A9] to-[#778985] rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                  <div className="p-4 sm:p-6 text-white h-full flex flex-col justify-between">
+                    <div className="flex items-center justify-between">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span className="text-xs opacity-80 font-['Montserrat']">
+                        COMMUNITY
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg font-bold mb-2 font-serif">
+                        A Thriving Global Circle
+                      </h4>
+                      <p className="text-xs sm:text-sm opacity-90 font-['Montserrat']">
+                        It Takes a Community To Raise a Student
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               </a>
               {/* Floating Cards */}
               <div className="absolute top-[10rem] sm:top-[18rem] right-0 sm:right-4 w-24 sm:w-28 h-16 sm:h-20 bg-white rounded-xl shadow-lg transform rotate-6 hover:rotate-3 transition-all duration-500">
@@ -522,10 +522,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="text-2xl sm:text-3xl font-bold text-[#FFFFFE] mb-2 font-serif">
-                  45M+
+                  Real Impact
                 </div>
                 <p className="text-gray-300 text-sm sm:text-base font-['Montserrat']">
-                  Learners have achieved success across the globe
+                  Learners around the world are growing with our programs
                 </p>
               </div>
               <div className="text-center">
@@ -533,10 +533,11 @@ export default function Home() {
                   <Star className="w-5 sm:w-6 h-5 sm:h-6 text-[#264A4A]" />
                 </div>
                 <div className="text-2xl sm:text-3xl font-bold text-[#FFFFFE] mb-2 font-serif">
-                  16.1+
+                  Trusted Mentors
                 </div>
                 <p className="text-gray-300 text-sm sm:text-base font-['Montserrat']">
-                  Mentors participating in the program
+                  Experienced guides helping children thrive every step of the
+                  way
                 </p>
               </div>
             </div>

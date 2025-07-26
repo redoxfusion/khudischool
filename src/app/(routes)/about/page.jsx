@@ -182,7 +182,7 @@ export default function AboutPage() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-12 md:py-20">
+      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
           <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 font-serif">About Us</h1>
           <p className="text-lg md:text-2xl max-w-3xl mx-auto">

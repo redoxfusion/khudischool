@@ -32,7 +32,7 @@ export default function OfferingsPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white py-20">
+      <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Offerings</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
