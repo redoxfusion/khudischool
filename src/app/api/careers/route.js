@@ -46,26 +46,90 @@ export async function POST(request) {
       )
     }
 
-    // Setup Google Auth for Sheets only
+    // Setup Google Auth for both Sheets and Drive
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
         private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
       },
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      scopes: [
+        'https://www.googleapis.com/auth/spreadsheets',
+        'https://www.googleapis.com/auth/drive.file'
+      ],
+    })
+
+    // Setup OAuth2 client for Drive (using your OAuth credentials)
+    const oauth2Client = new google.auth.OAuth2(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      process.env.REDIRECT_URI
+    )
+
+    oauth2Client.setCredentials({
+      refresh_token: process.env.REFRESH_TOKEN
     })
 
     const sheets = google.sheets({ version: 'v4', auth })
+    const drive = google.drive({ version: 'v3', auth: oauth2Client })
 
-    // Get file info for the sheet
+    // Handle file upload to Google Drive
     let resumeInfo = 'No file uploaded'
+    let driveFileId = null
+
     if (resumeFile && resumeFile.size > 0) {
-      resumeInfo = `File: ${resumeFile.name} (${(resumeFile.size / 1024 / 1024).toFixed(2)} MB) - Please request via email`
+      try {
+        // Convert File to Buffer
+        const arrayBuffer = await resumeFile.arrayBuffer()
+        const buffer = Buffer.from(arrayBuffer)
+        
+        // Create a readable stream from buffer
+        const { Readable } = require('stream')
+        const stream = new Readable()
+        stream.push(buffer)
+        stream.push(null)
+
+        // Generate filename with timestamp and applicant name
+        const timestamp = new Date().toISOString().split('T')[0]
+        const sanitizedName = fullName.replace(/[^a-zA-Z0-9]/g, '_')
+        const fileName = `${type}_${sanitizedName}_${timestamp}_${resumeFile.name}`
+
+        // Upload to Google Drive
+        const driveResponse = await drive.files.create({
+          requestBody: {
+            name: fileName,
+            parents: [process.env.GOOGLE_DRIVE_FOLDER_ID], // Optional: specify folder ID
+          },
+          media: {
+            mimeType: resumeFile.type,
+            body: stream,
+          },
+        })
+
+        driveFileId = driveResponse.data.id
+        
+        // Make file accessible (optional - you might want to keep it private)
+        await drive.permissions.create({
+          fileId: driveFileId,
+          requestBody: {
+            role: 'reader',
+            type: 'anyone',
+          },
+        })
+
+        resumeInfo = `Resume uploaded: ${fileName} (Drive ID: ${driveFileId})`
+        
+      } catch (driveError) {
+        console.error('Google Drive upload error:', driveError)
+        return NextResponse.json(
+          { success: false, message: 'Failed to upload resume to Google Drive' },
+          { status: 500 }
+        )
+      }
     }
 
     // Prepare data for Google Sheet
-    const sheetId = type === 'job' 
-      ? process.env.GOOGLE_SHEET_JOB_ID 
+    const sheetId = type === 'job'
+      ? process.env.GOOGLE_SHEET_JOB_ID
       : process.env.GOOGLE_SHEET_VOLUNTEER_ID
 
     // Create row data based on application type
@@ -79,6 +143,7 @@ export async function POST(request) {
         experience,
         whyJoin,
         resumeInfo,
+        driveFileId ? `https://drive.google.com/file/d/${driveFileId}/view` : 'No file',
         new Date().toLocaleString('en-US', { timeZone: 'Asia/Karachi' }),
       ]
     } else {
@@ -93,6 +158,7 @@ export async function POST(request) {
         availability,
         whyJoin,
         resumeInfo,
+        driveFileId ? `https://drive.google.com/file/d/${driveFileId}/view` : 'No file',
         new Date().toLocaleString('en-US', { timeZone: 'Asia/Karachi' }),
       ]
     }
@@ -115,9 +181,10 @@ export async function POST(request) {
       )
     }
 
-    return NextResponse.json({ 
-      success: true, 
-      message: `${type === 'job' ? 'Job' : 'Volunteer'} application submitted successfully! ${resumeFile ? 'Please email your resume to info@khudiinstitute.com for processing.' : ''}`
+    return NextResponse.json({
+      success: true,
+      message: `${type === 'job' ? 'Job' : 'Volunteer'} application submitted successfully! ${resumeFile ? 'Resume has been uploaded to our secure storage.' : ''}`,
+      driveFileId: driveFileId
     })
 
   } catch (error) {
