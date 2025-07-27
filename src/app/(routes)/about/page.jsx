@@ -50,7 +50,7 @@ export default function AboutPage() {
   const leadershipTeam = [
     {
       name: "Abubakar Khan",
-      position: "CEO, Khudi Institute",
+      position: "Founder and CEO, Khudi Institute",
       image: "/ceo.png",
       bio: "With over 6 years of leadership in alternative education and Islamic schooling, Abubakar brings a clear vision and hands-on experience in building impactful learning spaces.",
       expertise: ["Educational Leadership", "Alternative Education", "Islamic Schooling", "Vision Development"],
@@ -58,6 +58,18 @@ export default function AboutPage() {
         "Founded Khudi Institute with a mission to revolutionize Islamic education",
         "6+ years of leadership in alternative education sector",
         "Built impactful learning spaces with hands-on experience",
+      ],
+    },
+    {
+      name: "Abdullah Javaid",
+      position: "Founder and CMO, Khudi Institute",
+      image: "/Abdullah.png",
+      bio: "Man behind our digital productions also associated with Bayyinah, Abdullah ensures our message is communicated with clarity, authenticity, and impact.",
+      expertise: ["Digital Productions", "Media Strategy", "Communications", "Content Creation", "Chief Marketing Officer"],
+      achievements: [
+        "Associated with Bayyinah for digital productions",
+        "Ensures message communication with clarity and authenticity",
+        "Creates impactful digital content for educational purposes",
       ],
     },
     {
@@ -75,7 +87,7 @@ export default function AboutPage() {
     {
       name: "Karl Maas Yogi",
       position: "Advisor, Science & Technology Alignment",
-      image: "/karlMaasYogi.png",
+      image: "/karl.png",
       bio: "A German national with global corporate experience (Mercedes-Benz, among others), Karl is helping align our Science & Technology curriculum with international standards.",
       expertise: ["International Standards", "Science & Technology", "Corporate Experience", "Curriculum Alignment"],
       achievements: [
@@ -84,18 +96,7 @@ export default function AboutPage() {
         "Bringing German educational excellence to Khudi Institute",
       ],
     },
-    {
-      name: "Abdullah Javaid",
-      position: "Media & Communications Advisor",
-      image: "/Abdullah.png",
-      bio: "Man behind our digital productions also associated with Bayyinah, Abdullah ensures our message is communicated with clarity, authenticity, and impact.",
-      expertise: ["Digital Productions", "Media Strategy", "Communications", "Content Creation"],
-      achievements: [
-        "Associated with Bayyinah for digital productions",
-        "Ensures message communication with clarity and authenticity",
-        "Creates impactful digital content for educational purposes",
-      ],
-    },
+    
     {
       name: "Umer Sheraz",
       position: "Strategic Foresight & Futures Thinking",
@@ -530,7 +531,7 @@ export default function AboutPage() {
               the foundational framework for our learning systems.
             </p>
             <p className="text-lg text-[#FFFFFE] font-semibold">
-              Join us in our journey to elevate education standards{" "}
+              To learn more about Elements Learning and their research,{" "}
               <a href="https://www.elements-learning.com" className="underline">
                 {" "}
                 Click Here.

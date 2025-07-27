@@ -210,18 +210,18 @@ export default function CareersPage() {
   }
 
   return (
-    <div className="font-serif">
-      {/* Hero Section */}
+    <div>
       <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
-        <div className=" max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 font-serif">Careers</h1>
-          <p className="text-lg md:text-2xl max-w-3xl mx-auto">Join Our Mission to Transform Education</p>
-          <p className="text-sm md:text-lg mt-3 md:mt-4 max-w-2xl mx-auto">
-            Be part of a team that's reimagining education through Islamic values and innovative learning approaches.
-            Applications are open year-round.
-          </p>
-        </div>
-      </section>
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
+    <h1 className="text-4xl md:text-6xl font-bold mb-6">Careers</h1>
+    <p className="text-xl md:text-2xl max-w-3xl mx-auto">Join Our Mission to Transform Education</p>
+    <p className="text-lg mt-4 max-w-2xl mx-auto">
+      Be part of a team that's reimagining education through Islamic values and innovative learning approaches.
+      Applications are open year-round.
+    </p>
+  </div>
+</section>
+
 
       {/* Why Join Us */}
       <section className="py-12 md:py-16 bg-white">
@@ -238,7 +238,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-8 md:mb-12">
             <div className="relative w-full h-48 md:h-80 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/TeamCollaboration.jpeg"
+                src="/Teamcollaboration.png"
                 alt="Team collaboration"
                 fill
                 className="object-cover"
@@ -596,10 +596,10 @@ export default function CareersPage() {
           </div>
           <div className="relative w-full h-48 md:h-80 rounded-2xl overflow-hidden shadow-lg mt-8 md:mt-12">
             <Image
-              src="/placeholder.svg?height=400&width=800"
+              src="/Processillustration.png"
               alt="Process illustration"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
         </div>
