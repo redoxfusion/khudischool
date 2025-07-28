@@ -181,7 +181,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <Layout>
+    <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#428180] to-[#264A4A] text-white pt-20 pb-12 md:pt-28 md:pb-16" id="no-body-padding">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
@@ -590,6 +590,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </div>
   )
 }
