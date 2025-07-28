@@ -26,19 +26,6 @@ export default function Home() {
       date: "07 March 2025",
       image: "/Students.jpeg",
     },
-    {
-      title: "Annual Science Fair",
-      description: "Showcasing innovative projects by our talented learners.",
-      date: "15 April 2025",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      title: "Community Outreach Day",
-      description:
-        "Join us in serving the local community and making a difference.",
-      date: "20 May 2025",
-      image: "/placeholder.svg?height=400&width=600",
-    },
   ];
 
   const nextEvent = () => {
