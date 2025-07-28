@@ -333,7 +333,7 @@ export default function CareersPage() {
 
           <div className="relative w-full h-48 md:h-80 rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/jobopportunities.jpeg"
+              src="/Jobopportunities.jpeg"
               alt="Career opportunities"
               fill
               className="object-cover"

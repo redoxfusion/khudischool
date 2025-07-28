@@ -87,7 +87,7 @@ export default function AboutPage() {
     {
       name: "Karl Maas Yogi",
       position: "Advisor, Science & Technology Alignment",
-      image: "/karl.png",
+      image: "/Karl.png",
       bio: "A German national with global corporate experience (Mercedes-Benz, among others), Karl is helping align our Science & Technology curriculum with international standards.",
       expertise: ["International Standards", "Science & Technology", "Corporate Experience", "Curriculum Alignment"],
       achievements: [
