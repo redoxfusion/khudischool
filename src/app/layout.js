@@ -47,13 +47,13 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/khudi-logo.png", sizes: "32x32", type: "image/png" },
-      { url: "/khudi-logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/khudi-favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
     apple: [
       { url: "/khudi-logo.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/khudi-logo.png",
+    shortcut: "/khudi-favicon.ico",
   },
 };
 
