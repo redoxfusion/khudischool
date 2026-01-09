@@ -19,11 +19,20 @@ export const metadata = {
     siteName: "Khudi Institute",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/khudi-logo.png",
+        width: 512,
+        height: 512,
+        alt: "Khudi Institute Logo",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Khudi Institute | Alternative School & Homeschool Resource Center",
     description: "Khudi Institute is an alternative school and resource center for homeschoolers, focused on the holistic development of each learner through project-based learning rooted in Islamic values.",
+    images: ["/khudi-logo.png"],
   },
   robots: {
     index: true,
@@ -37,7 +46,14 @@ export const metadata = {
     },
   },
   icons: {
-    icon: "/logo.svg",
+    icon: [
+      { url: "/khudi-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/khudi-logo.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/khudi-logo.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/khudi-logo.png",
   },
 };
 
