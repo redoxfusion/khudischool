@@ -45,6 +45,9 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "JQwXu4pb99bw8G9oDeCo4OdkM6thKaQr8FVkFRMBhpc",
+  },
   icons: {
     icon: [
       { url: "/khudi-favicon.ico", sizes: "any" },

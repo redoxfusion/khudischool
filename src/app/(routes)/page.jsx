@@ -43,9 +43,6 @@ export default function Home() {
   return (
     
     <div className="bg-[#FEFDF9] text-[#428180] ">
-      <Head>
-      <meta name="google-site-verification" content="JQwXu4pb99bw8G9oDeCo4OdkM6thKaQr8FVkFRMBhpc" />
-      </Head>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FEFDF9] via-[#F8F9FA] to-[#E9ECEF] py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
