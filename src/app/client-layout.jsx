@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Navbar from "@/components/navbar";
+import { Facebook, Instagram, Phone, Mail } from "lucide-react";
 import Footer from "@/components/footer";
-import { Facebook, Instagram, Globe, Phone, Mail } from "lucide-react";
 import { MainNavBar } from "@/components/main-navbar";
 
-export default function Layout({ children }) {
+export default function ClientLayout({ children }) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}

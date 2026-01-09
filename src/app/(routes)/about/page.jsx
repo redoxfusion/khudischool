@@ -1,5 +1,4 @@
 "use client"
-import Layout from "@/app/(routes)/layout"
 import { Users, Target, Heart, MessageSquare, FlaskConical, X } from "lucide-react"
 import { useState, useEffect } from "react"
 import Image from "next/image"
