@@ -125,56 +125,82 @@ export default function AboutPage() {
   // Teaching Faculty Data
   const teachingFaculty = [
     {
-      name: "Ms. Fatima Ali",
-      position: "Mathematics & Science Coordinator",
-      image: "/placeholder.svg?height=150&width=150",
-      bio: "Ms. Fatima Ali leads our STEM education with a focus on hands-on learning. She holds a Master's in Mathematics Education and has been pioneering innovative teaching methods for 8 years.",
-      expertise: ["Mathematics Education", "Science Pedagogy", "STEM Integration", "Project-Based Learning"],
+      name: "Shumama Zaidi",
+      position: "Arabic Teacher",
+      image: "/khudi teachers/shumamazaidi.webp",
+      bio: "I am a passionate Arabic teacher with 14+ years of experience who loves inspiring young learners. With patience, creativity, and a joyful approach, I make Arabic fun and easy for children. Together we explore the language through stories, poems, and interactive activities, building confidence and a love for learning.",
+      expertise: ["Arabic Language Teaching", "Early Childhood Education", "Interactive Learning", "Creative Pedagogy"],
       achievements: [
-        "Developed the Math Lab curriculum for Khudi Institute",
-        "Winner of Excellence in STEM Teaching Award 2022",
-        "Created interactive learning modules for complex mathematical concepts",
+        "14+ years of teaching experience in Arabic education",
+        "Specializes in making Arabic fun and accessible for children",
+        "Uses stories, poems, and interactive activities to build language confidence",
       ],
     },
     {
-      name: "Mr. Ahmed Malik",
-      position: "Language Arts & Literature Teacher",
-      image: "/placeholder.svg?height=150&width=150",
-      bio: "Mr. Ahmed Malik brings creativity and passion to language learning. With expertise in both English and Urdu literature, he helps students develop strong communication skills while appreciating literary heritage.",
-      expertise: ["English Literature", "Urdu Poetry", "Creative Writing", "Communication Skills"],
+      name: "Areej Khizer",
+      position: "Preschool Lead Educator",
+      image: "/khudi teachers/Areejkhizer.webp",
+      bio: "I am a Preschool Lead Educator with over five years of experience in Early Years education—two years in Saudi Arabia and nearly four years in Pakistan. With professional training in the Reggio Emilia approach, I am deeply committed to creating a warm, safe, and stimulating environment where young children can thrive in their learning journey. I believe children learn best through play, exploration, and joyful experiences, and I strive to give them the freedom to discover their abilities with confidence.",
+      expertise: ["Early Years Education", "Reggio Emilia Approach", "Play-Based Learning", "Child Development"],
       achievements: [
-        "Established the creative writing program",
-        "Published poetry collection focusing on Islamic themes",
-        "Mentored students in national literature competitions",
+        "5+ years of experience in early childhood education",
+        "International experience in Saudi Arabia and Pakistan",
+        "Professional training in Reggio Emilia approach",
+        "Creates nurturing environments for young learners",
       ],
     },
     {
-      name: "Ms. Zainab Khan",
-      position: "Early Childhood Education Specialist",
-      image: "/placeholder.svg?height=150&width=150",
-      bio: "Ms. Zainab Khan specializes in early childhood development with a focus on Islamic values. She creates nurturing environments where young learners can explore, discover, and grow.",
+      name: "Sami",
+      position: "Robotics & AI Mentor",
+      image: "/khudi teachers/Sami.webp",
+      bio: "I am an O-Levels student and STEM specialist with 4+ years of teaching experience. I have successfully trained a diverse range of learners, from young students to school faculty, in advanced robotics and AI concepts.",
+      expertise: ["Robotics Education", "Curriculum Designing", "Student Mentoring", "AI Concepts"],
+      achievements: [
+        "Taught robotics and AI to over 100 students and educators",
+        "Facilitated 10+ hands-on STEM camps for 200+ students",
+        "4+ years of teaching experience in STEM education",
+      ],
+    },
+    {
+      name: "Unzila",
+      position: "Lead Educator",
+      image: "/khudi teachers/unzila.webp",
+      bio: "I currently work as a Lead Educator at KHUDI Institute. Since 2019, I have been working in the education sector with a focus on non-punitive, inclusive, and learner-centered approaches to teaching. After completing my Bachelor's degree in Social Sciences from Bahria University on the Dean's Honour List, I joined Teach For Pakistan as an Education Fellow, working in a rural government school for two years on addressing educational inequity through differentiated instruction and inclusive classroom practices.",
       expertise: [
-        "Early Childhood Development",
-        "Play-Based Learning",
-        "Child Psychology",
-        "Islamic Character Building",
+        "Non-Punitive Education",
+        "Inclusive Teaching",
+        "Learner-Centered Approaches",
+        "Leadership Development",
+        "Educational Equity",
       ],
       achievements: [
-        "Designed the Foundation Years curriculum",
-        "Certified in Montessori and Reggio Emilia approaches",
-        "Trained educators across Pakistan in early childhood best practices",
+        "Teach For Pakistan Fellow with rural school experience",
+        "Reduced 80% learning gap among students",
+        "Contributed to 85% reduction in corporal punishment in government schools",
+        "100% scholarship to Harvard Business School leadership program",
+        "Working on British Council project for English literacy",
+        "Dean's Honour List graduate from Bahria University",
       ],
     },
     {
-      name: "Mr. Omar Farooq",
-      position: "Arts & Creativity Instructor",
-      image: "/placeholder.svg?height=150&width=150",
-      bio: "Mr. Omar Farooq leads our aesthetic development program, combining traditional Islamic arts with contemporary creative expression. He believes in nurturing the artistic soul of every learner.",
-      expertise: ["Islamic Calligraphy", "Visual Arts", "Creative Expression", "Art Therapy"],
+      name: "Amna Jansher",
+      position: "Early Childhood Educator & Preschool Specialist",
+      image: "/khudi teachers/amnajansher.webp",
+      bio: "I am an early childhood educator and preschool specialist with over ten years of experience working with young children, families, and schools. My work spans preschool coordination, curriculum development, phonics and language instruction, and child development coaching. Floppy Phonics certified, I support children with diverse learning needs by strengthening both academic foundations and emotional well-being. My practice is rooted in play, inquiry, and developmentally appropriate, child-led learning - honouring childhood while creating thoughtful, responsive learning environments where children are trusted to explore, think, and grow.",
+      expertise: [
+        "Early Childhood Education",
+        "Preschool Coordination",
+        "Curriculum Development",
+        "Phonics & Language Instruction",
+        "Child Development Coaching",
+        "Floppy Phonics",
+      ],
       achievements: [
-        "Established the Arts & Creativity Lab",
-        "Master calligrapher with 15 years of experience",
-        "Organized community art exhibitions showcasing student work",
+        "10+ years of experience in early childhood education",
+        "Floppy Phonics certified educator",
+        "Specializes in supporting children with diverse learning needs",
+        "Expert in play-based and child-led learning approaches",
+        "Experienced in working with families and schools",
       ],
     },
   ]
@@ -502,9 +528,11 @@ export default function AboutPage() {
               </div>
               {/* Image on desktop - appears on right side */}
               <div className="hidden lg:block flex-shrink-0 lg:w-1/3">
-                <img
+                <Image
                   src="/ceo.png"
                   alt="CEO Abubakar Khan Lodhi"
+                  width={400}
+                  height={400}
                   className="rounded-2xl shadow-lg w-full h-auto object-cover"
                 />
               </div>
